@@ -14,10 +14,10 @@ set cpo&vim
 let g:vimshell_kawaii_prompt_normal       = get(g:, 'vimshell_kawaii_normal', "(*'-')")
 let g:vimshell_kawaii_prompt_error        = get(g:, 'vimshell_kawaii_error', "(*;-;)?")
 let g:vimshell_kawaii_prompt_append_error = get(g:, 'vimshell_kawaii_prompt_append_error', 0)
-let g:vimshell_kawaii_allow_eoverwrite    = get(g:, 'vimshell_kawaii_allow_overwrite', 1)
+let g:vimshell_kawaii_allow_overwrite    = get(g:, 'vimshell_kawaii_allow_overwrite', 1)
 let g:vimshell_kawaii_last_cmd            = ''
 
-if g:vimshell_kawaii_allow_eoverwrite == 1
+if g:vimshell_kawaii_allow_overwrite == 1
   let g:vimshell_user_prompt = 'vimshell_kawaii#prompt()'
 endif
 
