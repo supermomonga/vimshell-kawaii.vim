@@ -19,15 +19,27 @@ let g:vimshell_kawaii_prompts.normal    = get(g:, 'vimshell_kawaii_prompts.norma
 let g:vimshell_kawaii_prompts.emptycmd  = get(g:, 'vimshell_kawaii_prompts.emptycmd', "(*'-')?")
 let g:vimshell_kawaii_prompts.notfound  = get(g:, 'vimshell_kawaii_prompts.notfound', "(*'-')?")
 let g:vimshell_kawaii_prompts.error     = get(g:, 'vimshell_kawaii_prompts.error',    "(*;-;)!")
-" sysexits(3)など
+" sysexits(3) errors, vimshell original errors
 let g:vimshell_kawaii_errorcodes        = get(g:, 'vimshell_kawaii_errorcodes', {
-      \ '1'        : "GENERAL_ERROR",
-      \ '64'       : "EX_USAGE",
-      \ '65'       : "EX_DATAERR",
-      \ '75'       : "EX_TEMPFAIL",
-      \ 'notfound' : "VIMSHELL_NOTFOUND",
-      \ 'emptycmd' : "VIMSHELL_EMPTYCMD",
-      \ 'unknown'  : "VIMSHELL_UNKNOWN_ERROR"
+      \ '1'        : 'GENERAL_ERROR',
+      \ '64'       : 'EX_USAGE',
+      \ '65'       : 'EX_DATAERR',
+      \ '66'       : 'EX_NOINPUT',
+      \ '67'       : 'EX_NOUSER',
+      \ '68'       : 'EX_NOHOST',
+      \ '69'       : 'EX_UNAVAILABLE',
+      \ '70'       : 'EX_SOFTWARE',
+      \ '71'       : 'EX_OSERR',
+      \ '72'       : 'EX_OSFILE',
+      \ '73'       : 'EX_CANTCREAT',
+      \ '74'       : 'EX_IOERR',
+      \ '75'       : 'EX_TEMPFAIL',
+      \ '76'       : 'EX_PROTOCOL',
+      \ '77'       : 'EX_NOPERM',
+      \ '78'       : 'EX_CONFIG',
+      \ 'notfound' : 'VIMSHELL_NOTFOUND',
+      \ 'emptycmd' : 'VIMSHELL_EMPTYCMD',
+      \ 'unknown'  : 'VIMSHELL_UNKNOWN_ERROR'
       \ })
 
 if g:vimshell_kawaii_allow_overwrite == 1
