@@ -17,11 +17,6 @@ function! vimshell_kawaii#notfound(cmdline, context)
 endfunction
 
 
-function! vimshell_kawaii#preexec(cmdline, context)
-  return a:cmdline
-endfunction
-
-
 function! vimshell_kawaii#postexec(cmdline, context)
   let g:vimshell_kawaii_last_cmd = a:cmdline
   return a:cmdline

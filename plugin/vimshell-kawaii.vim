@@ -5,7 +5,7 @@
 if exists('g:loaded_vimshell_kawaii')
   finish
 endif
-" let g:loaded_vimshell_kawaii = 1
+let g:loaded_vimshell_kawaii = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
@@ -14,7 +14,7 @@ set cpo&vim
 let g:vimshell_kawaii_allow_overwrite   = get(g:, 'vimshell_kawaii_allow_overwrite', 1)
 let g:vimshell_kawaii_last_cmd          = ''
 let g:vimshell_kawaii_display_errorcode = get(g:, 'vimshell_kawaii_display_errorcode', 1)
-let g:vimshell_kawaii_prompts = {}
+let g:vimshell_kawaii_prompts           = get(g:, 'vimshell_kawaii_prompts', {})
 let g:vimshell_kawaii_prompts.normal    = get(g:, 'vimshell_kawaii_prompts.normal',   "(*'-')")
 let g:vimshell_kawaii_prompts.emptycmd  = get(g:, 'vimshell_kawaii_prompts.emptycmd', "(*'-')?")
 let g:vimshell_kawaii_prompts.notfound  = get(g:, 'vimshell_kawaii_prompts.notfound', "(*'-')?")
@@ -39,7 +39,6 @@ endif
 autocmd FileType vimshell
       \  call vimshell#hook#add('emptycmd', 'vimshell_kawaii_emptycmd', 'vimshell_kawaii#emptycmd')
       \| call vimshell#hook#add('notfound', 'vimshell_kawaii_notfound', 'vimshell_kawaii#notfound')
-      \| call vimshell#hook#add('preexec' , 'vimshell_kawaii_preexec' , 'vimshell_kawaii#preexec')
       \| call vimshell#hook#add('postexec', 'vimshell_kawaii_postexec', 'vimshell_kawaii#postexec')
 
 let &cpo = s:save_cpo
