@@ -1,7 +1,6 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-
 function! vimshell_kawaii#emptycmd(cmdline, context)
   " emptycmd as error
   let b:vimshell.system_variables['status'] = 'emptycmd'
@@ -24,7 +23,7 @@ endfunction
 
 
 function! vimshell_kawaii#prompt()
-  let l:status     = b:vimshell.system_variables['status'] 
+  let l:status     = b:vimshell.system_variables['status']
   let l:prompts    = g:vimshell_kawaii_prompts
   let l:errorcodes = g:vimshell_kawaii_errorcodes
 
@@ -48,6 +47,12 @@ function! vimshell_kawaii#prompt()
 
   " return prompt
   return l:prompt
+endfunction
+
+
+function! vimshell_kawaii#happySmileRandBool()
+  let l:rand = str2nr(strpart(reltimestr(reltime()), 10))
+  return (l:rand % 20 == 0)
 endfunction
 
 
