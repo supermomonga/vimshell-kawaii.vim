@@ -28,7 +28,12 @@ function! vimshell_kawaii#prompt()
   let l:errorcodes = g:vimshell_kawaii_errorcodes
 
   if (type(l:status) == type(0) && l:status == 0) || (type(l:status) == type('') && l:status == '')
-    let l:prompt = l:prompts.normal
+    if !g:vimshell_kawaii_smiley
+      let l:prompt = l:prompts.normal
+    else
+      let l:prompt = s:happySmileRandBool()
+          \ ? "(*^-')/~" : l:prompts.normal
+    endif
   else
     let l:prompt = has_key(l:prompts, l:status) ? l:prompts[l:status] : l:prompts.error
     if g:vimshell_kawaii_display_errorcode == 1
@@ -50,8 +55,8 @@ function! vimshell_kawaii#prompt()
 endfunction
 
 
-function! vimshell_kawaii#happySmileRandBool()
-  let l:rand = str2nr(strpart(reltimestr(reltime()), 10))
+function! s:happySmileRandBool()
+  let l:rand = str2nr(strpart(reltimestr(reltime()), 11))
   return (l:rand % 20 == 0)
 endfunction
 
