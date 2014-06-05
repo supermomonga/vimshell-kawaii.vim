@@ -5,20 +5,29 @@
 if exists('g:loaded_vimshell_kawaii')
   finish
 endif
-let g:loaded_vimshell_kawaii = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
 
 " Default settings
-let g:vimshell_kawaii_allow_overwrite   = get(g:, 'vimshell_kawaii_allow_overwrite', 1)
-let g:vimshell_kawaii_last_cmd          = ''
-let g:vimshell_kawaii_display_errorcode = get(g:, 'vimshell_kawaii_display_errorcode', 1)
-let g:vimshell_kawaii_prompts           = get(g:, 'vimshell_kawaii_prompts', {})
-let g:vimshell_kawaii_prompts.normal    = get(g:vimshell_kawaii_prompts, 'normal',   "(*'-')")
-let g:vimshell_kawaii_prompts.emptycmd  = get(g:vimshell_kawaii_prompts, 'emptycmd', "(*'-')?")
-let g:vimshell_kawaii_prompts.notfound  = get(g:vimshell_kawaii_prompts, 'notfound', "(*'-')?")
-let g:vimshell_kawaii_prompts.error     = get(g:vimshell_kawaii_prompts, 'error',    "(*;-;)!")
+let g:vimshell_kawaii_allow_overwrite     = get(g:, 'vimshell_kawaii_allow_overwrite', 1)
+let g:vimshell_kawaii_last_cmd            = ''
+let g:vimshell_kawaii_display_errorcode   = get(g:, 'vimshell_kawaii_display_errorcode', 1)
+let g:vimshell_kawaii_smiley              = get(g:, 'vimshell_kawaii_smiley', 0)
+
+let g:vimshell_kawaii_prompts             = get(g:, 'vimshell_kawaii_prompts', {})
+if !g:vimshell_kawaii_smiley
+  let g:vimshell_kawaii_prompts.normal    = get(g:vimshell_kawaii_prompts, 'normal',   "(*'-')")
+  let g:vimshell_kawaii_prompts.emptycmd  = get(g:vimshell_kawaii_prompts, 'emptycmd', "(*'-')?")
+  let g:vimshell_kawaii_prompts.notfound  = get(g:vimshell_kawaii_prompts, 'notfound', "(*'-')?")
+  let g:vimshell_kawaii_prompts.error     = get(g:vimshell_kawaii_prompts, 'error',    "(*;-;)!")
+else
+  let g:vimshell_kawaii_prompts.normal    = get(g:vimshell_kawaii_prompts, 'normal',   "(*^-^)")
+  let g:vimshell_kawaii_prompts.emptycmd  = get(g:vimshell_kawaii_prompts, 'emptycmd', "(*^-^)?")
+  let g:vimshell_kawaii_prompts.notfound  = get(g:vimshell_kawaii_prompts, 'notfound', "(*'-^)?")
+  let g:vimshell_kawaii_prompts.error     = get(g:vimshell_kawaii_prompts, 'error',    "(;*^-^)!")
+endif
+
 " sysexits(3) errors, vimshell original errors
 let g:vimshell_kawaii_errorcodes        = get(g:, 'vimshell_kawaii_errorcodes', {
       \ '1'        : 'GENERAL_ERROR',
