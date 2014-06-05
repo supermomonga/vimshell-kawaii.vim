@@ -10,6 +10,12 @@ If you are using NeoBundle.vim, you only need to write following lines to your .
 
     NeoBundle 'supermomonga/vimshell-kawaii', {'depends' : 'Shougo/vimshell'}
 
+# Option
+
+The prompt character change to smiley girl.
+
+    g:vimshell_kawaii_smiley = 1
+
 # Usage
 
 Run VimShell, and enjoy kawaii prompt.
